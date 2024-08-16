@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockPicker : MonoBehaviour
+public class ItemPicker : MonoBehaviour
 {
-    [SerializeField] private LayerMask blockWorldLayerMask;
+    [SerializeField] private LayerMask itemLayerMask;
     [SerializeField] private LayerMask playAreaLayerMask; // Layer mask untuk play area
 
-    private Block pickedBlock;
+    private Item pickedItem;
 
     private void Update()
     {
@@ -18,20 +18,20 @@ public class BlockPicker : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            if (pickedBlock != null)
+            if (pickedItem != null)
             {
-                pickedBlock.GetComponent<Rigidbody>().isKinematic = false;
-                pickedBlock = null;
+                pickedItem.GetComponent<Rigidbody>().isKinematic = false;
+                pickedItem = null;
             }
         }
 
-        if (pickedBlock != null)
+        if (pickedItem != null)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, playAreaLayerMask))
             {
                 // Pindahkan objek ke posisi mouse jika raycast menyentuh play area
-                pickedBlock.transform.position = raycastHit.point;
+                pickedItem.transform.position = raycastHit.point;
             }
         }
     }
@@ -39,14 +39,14 @@ public class BlockPicker : MonoBehaviour
     private void HandlePickUpAndDrop()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, blockWorldLayerMask))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, itemLayerMask))
         {
-            if (raycastHit.transform.TryGetComponent<Block>(out Block detectedBlock))
+            if (raycastHit.transform.TryGetComponent<Item>(out Item detectedItem))
             {
-                if (detectedBlock.IsPickable())
+                if (detectedItem.IsPickable())
                 {
-                    pickedBlock = detectedBlock;
-                    pickedBlock.GetComponent<Rigidbody>().isKinematic = true;
+                    pickedItem = detectedItem;
+                    pickedItem.GetComponent<Rigidbody>().isKinematic = true;
                 }
             }
         }

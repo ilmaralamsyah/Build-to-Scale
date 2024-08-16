@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : MonoBehaviour
+public class Item : MonoBehaviour
 {
     [SerializeField] private bool isPickable;
     [SerializeField] private bool isScalable;

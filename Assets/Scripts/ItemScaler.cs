@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
-public class BlockScaler : MonoBehaviour
+public class ItemScaler : MonoBehaviour
 {
-    public static BlockScaler Instance;
+    public static ItemScaler Instance;
 
-    [SerializeField] private LayerMask blockWorldLayerMask;
+    [SerializeField] private LayerMask itemLayerMask;
 
-    [SerializeField] private Block block;
+    [SerializeField] private Item item;
 
     [SerializeField] private float scaleSpeed;
     [SerializeField] private float maxScale;
@@ -24,36 +24,36 @@ public class BlockScaler : MonoBehaviour
 
     private void Update()
     {
-        DetectBlock();
-        ScaleObject();
+        DetectItem();
+        ScaleItem();
     }
 
-    private void DetectBlock()
+    private void DetectItem()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, blockWorldLayerMask))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, itemLayerMask))
         {
-            if (raycastHit.transform.TryGetComponent<Block>(out Block detectedBlock))
+            if (raycastHit.transform.TryGetComponent<Item>(out Item detectedItem))
             {
-                this.block = detectedBlock;
+                this.item = detectedItem;
             }
         }
         else
         {
-            this.block = null;
+            this.item = null;
         }        
     }
 
-    private void ScaleObject()
+    private void ScaleItem()
     {
-        if (this.block != null && block.IsScalable())
+        if (this.item != null && item.IsScalable())
         {
             // Detect mouse scroll input
             float scrollInput = Input.GetAxis("Mouse ScrollWheel");
             if (scrollInput != 0)
             {
                 // Calculate the new scale
-                Vector3 oldScale = this.block.transform.localScale;
+                Vector3 oldScale = this.item.transform.localScale;
                 Vector3 newScale = oldScale + Vector3.one * scrollInput * scaleSpeed;
 
                 // Clamp the new scale to be within the minimum and maximum limits
@@ -62,15 +62,15 @@ public class BlockScaler : MonoBehaviour
                 newScale.z = Mathf.Clamp(newScale.z, minScale, maxScale);
 
                 // Apply the new scale
-                this.block.transform.localScale = newScale;
+                this.item.transform.localScale = newScale;
 
                 // Calculate the difference in scale and adjust position to keep y at 0
                 Vector3 scaleDifference = newScale - oldScale;
-                Vector3 newPosition = this.block.transform.position;
+                Vector3 newPosition = this.item.transform.position;
                 newPosition.y -= scaleDifference.y * reposition; // Adjust based on scale change
 
                 // Apply the corrected position
-                this.block.transform.position = newPosition;
+                this.item.transform.position = newPosition;
             }
         }
     }
