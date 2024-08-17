@@ -15,7 +15,7 @@ public class ItemScaler : MonoBehaviour
     [SerializeField] private float maxScale;
     [SerializeField] private float minScale;
 
-    [SerializeField] private float reposition;
+
 
     private void Awake()
     {
@@ -40,23 +40,25 @@ public class ItemScaler : MonoBehaviour
         }
         else
         {
-            if(item != null)
+            if (item != null)
             {
-                item.GetComponent<Rigidbody>().isKinematic = true;
+                item.GetComponent<Rigidbody>().useGravity = true;
             }
             this.item = null;
-        }        
+        }
     }
 
     private void ScaleItem()
     {
         if (this.item != null && item.IsScalable())
         {
+            item.GetComponent<Rigidbody>().isKinematic = false;
+            item.GetComponent<Rigidbody>().useGravity = false;
+
             float scrollInput = Input.GetAxis("Mouse ScrollWheel");
             if (scrollInput != 0)
             {
                 // Calculate the new scale
-                item.GetComponent<Rigidbody>().isKinematic = false;
                 Vector3 oldScale = this.item.transform.localScale;
                 Vector3 newScale = oldScale + Vector3.one * scrollInput * scaleSpeed;
 
@@ -71,11 +73,15 @@ public class ItemScaler : MonoBehaviour
                 // Calculate the difference in scale and adjust position to keep y at 0
                 Vector3 scaleDifference = newScale - oldScale;
                 Vector3 newPosition = this.item.transform.position;
-                newPosition.y -= scaleDifference.y * reposition; // Adjust based on scale change
+                newPosition.x -= scaleDifference.x * item.GetRepositionValue().x; // Adjust based on scale change
+                newPosition.y -= scaleDifference.y * item.GetRepositionValue().y; // Adjust based on scale change
+                newPosition.z -= scaleDifference.z * item.GetRepositionValue().z; // Adjust based on scale change
 
                 // Apply the corrected position
                 this.item.transform.position = newPosition;
             }
         }
     }
+
+
 }

@@ -7,6 +7,10 @@ public class Item : MonoBehaviour
     [SerializeField] private bool isPickable;
     [SerializeField] private bool isScalable;
 
+    [SerializeField] private float xReposition;
+    [SerializeField] private float yReposition;
+    [SerializeField] private float zReposition;
+
     private Rigidbody rigidbody;
 
     private void Start()
@@ -14,6 +18,7 @@ public class Item : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
 
         rigidbody.isKinematic = true;
+        rigidbody.useGravity = true;
         
     }
 
@@ -30,5 +35,11 @@ public class Item : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         rigidbody.isKinematic = true;
+        rigidbody.useGravity = true;
+    }
+
+    public Vector3 GetRepositionValue()
+    {
+        return new Vector3(xReposition, yReposition, zReposition);
     }
 }
