@@ -5,9 +5,11 @@ using UnityEngine;
 public class ItemPicker : MonoBehaviour
 {
     [SerializeField] private LayerMask itemLayerMask;
-    [SerializeField] private LayerMask playAreaLayerMask; // Layer mask untuk play area
-
+    [SerializeField] private LayerMask playAreaLayerMask;
+    
+    private int pickUpLayer = 9;
     private Item pickedItem;
+    private int originalLayer;
 
     private void Update()
     {
@@ -21,6 +23,7 @@ public class ItemPicker : MonoBehaviour
             if (pickedItem != null)
             {
                 pickedItem.GetComponent<Rigidbody>().isKinematic = false;
+                pickedItem.gameObject.layer = originalLayer;
                 pickedItem = null;
             }
         }
@@ -30,8 +33,8 @@ public class ItemPicker : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, playAreaLayerMask))
             {
-                // Pindahkan objek ke posisi mouse jika raycast menyentuh play area
                 pickedItem.transform.position = raycastHit.point;
+                
             }
         }
     }
@@ -46,6 +49,8 @@ public class ItemPicker : MonoBehaviour
                 if (detectedItem.IsPickable())
                 {
                     pickedItem = detectedItem;
+                    originalLayer = pickedItem.gameObject.layer;
+                    pickedItem.gameObject.layer = pickUpLayer;
                     pickedItem.GetComponent<Rigidbody>().isKinematic = true;
                 }
             }

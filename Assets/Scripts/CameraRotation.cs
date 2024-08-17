@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraRotation : MonoBehaviour
 {
 
-    [SerializeField] private Transform pivotObject; // Objek di tengah yang menjadi poros rotasi
-    [SerializeField] private float rotationSpeed = 5f; // Kecepatan rotasi
+    [SerializeField] private Transform pivotObject;
+    [SerializeField] private float rotationSpeed = 5f;
 
     private void Update()
     {
@@ -18,10 +18,9 @@ public class CameraRotation : MonoBehaviour
 
     private void RotateCamera()
     {
-        float horizontalInput = Input.GetAxis("Mouse X"); // Input horizontal dari mouse
+        float horizontalInput = Input.GetAxis("Mouse X");
         if (horizontalInput != 0)
         {
-            // Rotasi kamera mengelilingi objek pusat
             transform.RotateAround(pivotObject.position, Vector3.up, horizontalInput * rotationSpeed);
         }
     }

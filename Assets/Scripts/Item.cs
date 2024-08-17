@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
     [SerializeField] private bool isPickable;
     [SerializeField] private bool isScalable;
 
-    Rigidbody rigidbody;
+    private Rigidbody rigidbody;
 
     private void Start()
     {
@@ -25,5 +25,10 @@ public class Item : MonoBehaviour
     public bool IsScalable()
     {
         return isScalable;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        rigidbody.isKinematic = true;
     }
 }
