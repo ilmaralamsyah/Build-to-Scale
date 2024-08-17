@@ -40,6 +40,10 @@ public class ItemScaler : MonoBehaviour
         }
         else
         {
+            if(item != null)
+            {
+                item.GetComponent<Rigidbody>().isKinematic = true;
+            }
             this.item = null;
         }        
     }
@@ -48,11 +52,11 @@ public class ItemScaler : MonoBehaviour
     {
         if (this.item != null && item.IsScalable())
         {
-            // Detect mouse scroll input
             float scrollInput = Input.GetAxis("Mouse ScrollWheel");
             if (scrollInput != 0)
             {
                 // Calculate the new scale
+                item.GetComponent<Rigidbody>().isKinematic = false;
                 Vector3 oldScale = this.item.transform.localScale;
                 Vector3 newScale = oldScale + Vector3.one * scrollInput * scaleSpeed;
 
