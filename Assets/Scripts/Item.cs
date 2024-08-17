@@ -13,10 +13,8 @@ public class Item : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
 
-        if (isPickable)
-        {
-            rigidbody.isKinematic = true;
-        }
+        rigidbody.isKinematic = true;
+        
     }
 
     public bool IsPickable()
