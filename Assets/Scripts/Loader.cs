@@ -11,6 +11,8 @@ public static class Loader
         MainMenuScene,
         LoadingScene,
         Level0,
+        Level1,
+        Level2,
         GameScene,
         GameOverScene
     }

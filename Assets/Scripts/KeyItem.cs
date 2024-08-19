@@ -9,7 +9,6 @@ public class KeyItem : MonoBehaviour
     public event Action onPickedUpKey;
 
     [SerializeField] private LayerMask keyLayerMask;
-    
 
     void Update()
     {

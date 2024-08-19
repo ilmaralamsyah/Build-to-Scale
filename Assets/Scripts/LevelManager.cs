@@ -8,9 +8,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Transform secretDoor;
     [SerializeField] private KeyItem key;
 
-    private bool basementTriggered = false;
-    private bool secretDoorTriggered = false;
-
     void Start()
     {
         LightController.onReveal += LightController_onEventTriggered;
@@ -34,7 +31,5 @@ public class LevelManager : MonoBehaviour
     {
         secretDoor.gameObject.SetActive(true);
     }
-
-
 
 }

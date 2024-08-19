@@ -29,7 +29,7 @@ public class SecretDoor : MonoBehaviour
             if (isUnlocked)
             {
                 //play audio opening door
-                Loader.Load(Loader.Scene.GameScene);
+                Loader.Load(Loader.Scene.Level1);
             }
             else
             {

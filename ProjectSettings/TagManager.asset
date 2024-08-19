@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Water
   - Couch
+  - FxTemporaire
+  - Candle
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Picked Item
   - Door
   - Key
-  - 
+  - Switch
   - 
   - 
   - 
