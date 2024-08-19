@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEditor.EventSystems;
+using System;
 
 public class ItemScaler : MonoBehaviour
 {
@@ -42,7 +44,7 @@ public class ItemScaler : MonoBehaviour
         {
             if (item != null)
             {
-                item.GetComponent<Rigidbody>().useGravity = true;
+                //item.GetComponent<Rigidbody>().isKinematic = true;
             }
             this.item = null;
         }
@@ -52,17 +54,23 @@ public class ItemScaler : MonoBehaviour
     {
         if (this.item != null && item.IsScalable())
         {
-            item.GetComponent<Rigidbody>().isKinematic = false;
-            item.GetComponent<Rigidbody>().useGravity = false;
+            //item.GetComponent<Rigidbody>().isKinematic = false;
 
             float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+            
+
             if (scrollInput != 0)
             {
                 // Calculate the new scale
+                HasLight(scrollInput);
                 Vector3 oldScale = this.item.transform.localScale;
                 Vector3 newScale = oldScale + Vector3.one * scrollInput * scaleSpeed;
 
                 // Clamp the new scale to be within the minimum and maximum limits
+
+                float minScale = item.GetMinScale();
+                float maxScale = item.GetMaxScale();
+
                 newScale.x = Mathf.Clamp(newScale.x, minScale, maxScale);
                 newScale.y = Mathf.Clamp(newScale.y, minScale, maxScale);
                 newScale.z = Mathf.Clamp(newScale.z, minScale, maxScale);
@@ -83,5 +91,19 @@ public class ItemScaler : MonoBehaviour
         }
     }
 
-
+    private void HasLight(float scrollInput)
+    {
+        if (item.TryGetComponent<LightController>(out LightController lightController))
+        {
+            if (scrollInput > 0f)
+            {
+                lightController.LightUp();
+            }
+            else if (scrollInput < 0f)
+            {
+                lightController.LightDown();
+                Debug.Log("down");
+            }
+        }
+    }
 }

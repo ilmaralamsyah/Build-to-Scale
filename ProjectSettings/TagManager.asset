@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Water
+  - Couch
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Item
   - Outer Area
   - Picked Item
-  - 
-  - 
+  - Door
+  - Key
   - 
   - 
   - 

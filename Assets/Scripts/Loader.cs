@@ -10,6 +10,7 @@ public static class Loader
     {
         MainMenuScene,
         LoadingScene,
+        Level0,
         GameScene,
         GameOverScene
     }

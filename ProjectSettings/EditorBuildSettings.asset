@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: bfa7b4a9538aaf149993308dd9602049
   - enabled: 1
-    path: Assets/Scenes/PrototypeScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Level0.unity
+    guid: 0c90b139cd1202e409ddc7d5c5ae9dfa
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: eba01ea4283edef4bb99bca5e001e913
   - enabled: 1
     path: Assets/Scenes/LevelDesignScene.unity
     guid: 3611c340137d9ab4888edc53e63d2a44
+  - enabled: 1
+    path: Assets/Scenes/PrototypeScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects: {}
