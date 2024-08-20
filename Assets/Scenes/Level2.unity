@@ -252,6 +252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenBone: {fileID: 137065559}
   hiddenCandle: {fileID: 883880767}
+  triggerByCondition: 0
+  condition: {fileID: 0}
 --- !u!54 &23023745
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -533,12 +535,85 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &62449215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a63602a59e8779a49a284e1940f5d6c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 566239108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &62449218 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a63602a59e8779a49a284e1940f5d6c8,
     type: 3}
   m_PrefabInstance: {fileID: 566239108}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &62449219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62449215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2059364df27d248add0be9c7537116, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPickable: 0
+  isScalable: 1
+  minScale: 0.4
+  maxScale: 1.6
+  xReposition: 0
+  yReposition: 0
+  zReposition: 0
+--- !u!54 &62449220
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62449215}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!65 &62449221
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62449215}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7524376, y: 5.0661154, z: 0.95177746}
+  m_Center: {x: 0.046214104, y: 2.2608094, z: 0.024926543}
 --- !u!1001 &68346842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2132,6 +2207,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenBone: {fileID: 582875633}
   hiddenCandle: {fileID: 1115597262}
+  triggerByCondition: 0
+  condition: {fileID: 0}
 --- !u!1001 &329093706
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3072,6 +3149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenBone: {fileID: 417320445}
   hiddenCandle: {fileID: 374558841}
+  triggerByCondition: 0
+  condition: {fileID: 0}
 --- !u!1001 &483357748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3775,13 +3854,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a63602a59e8779a49a284e1940f5d6c8,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a63602a59e8779a49a284e1940f5d6c8,
+        type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a63602a59e8779a49a284e1940f5d6c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 62449221}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a63602a59e8779a49a284e1940f5d6c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 62449220}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a63602a59e8779a49a284e1940f5d6c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 62449219}
   m_SourcePrefab: {fileID: 100100000, guid: a63602a59e8779a49a284e1940f5d6c8, type: 3}
 --- !u!1001 &568202071
 PrefabInstance:
@@ -11816,6 +11912,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenBone: {fileID: 978183493}
   hiddenCandle: {fileID: 1039959711}
+  triggerByCondition: 1
+  condition: {fileID: 62449218}
 --- !u!1001 &1836283228
 PrefabInstance:
   m_ObjectHideFlags: 0
