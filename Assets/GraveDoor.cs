@@ -28,6 +28,6 @@ public class GraveDoor : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Loader.Load(Loader.Scene.MainMenuScene);
+        Loader.Load(Loader.Scene.FinalScene);
     }
 }

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
-using UnityEditor.EventSystems;
 using System;
 
 public class ItemScaler : MonoBehaviour
