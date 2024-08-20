@@ -13,14 +13,16 @@ public class CameraRotation : MonoBehaviour
 
     private void Start()
     {
-        cursorHotspot = new Vector2 (cameraCursor.width / 2, cameraCursor.height / 2);
+        cursorHotspot = new Vector2(cameraCursor.width / 2, cameraCursor.height / 2);
     }
 
     private void Update()
     {
         if (Input.GetMouseButton(1))
         {
+
             Cursor.SetCursor(cameraCursor, cursorHotspot, CursorMode.Auto);
+
             RotateCamera();
         }
     }

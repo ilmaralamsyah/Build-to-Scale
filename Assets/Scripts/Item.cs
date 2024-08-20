@@ -18,14 +18,9 @@ public class Item : MonoBehaviour
     [SerializeField] private float yReposition;
     [SerializeField] private float zReposition;
 
-    private new Rigidbody rigidbody;
-
+    
     private void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
-
-        rigidbody.isKinematic = true;
-        rigidbody.useGravity = true;
         
     }
 
@@ -41,8 +36,6 @@ public class Item : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        rigidbody.isKinematic = true;
-        rigidbody.useGravity = true;
     }
 
     public Vector3 GetRepositionValue()

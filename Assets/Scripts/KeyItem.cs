@@ -12,7 +12,9 @@ public class KeyItem : MonoBehaviour
 
     private void OnMouseDown()
     {
+        AudioManager.Instance.PlayPickSFX();
         onPickedUpKey?.Invoke();
-        Destroy(gameObject, 0.2f);
+        Destroy(gameObject);
     }
+
 }

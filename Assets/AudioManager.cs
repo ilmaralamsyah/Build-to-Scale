@@ -30,36 +30,36 @@ public class AudioManager : MonoBehaviour
 
     public void PlayClickSFX()
     {
-        audioSource.PlayOneShot(clickSFX);
+        audioSource.PlayOneShot(clickSFX, 1f);
     }
 
     public void PlayDoorLockSFX()
     {
-        audioSource.PlayOneShot(doorLockSFX);
+        audioSource.PlayOneShot(doorLockSFX, 1f);
     }
 
     public void PlayDoorRevealSFX()
     {
-        audioSource.PlayOneShot(doorRevealSFX);
+        audioSource.PlayOneShot(doorRevealSFX, 1f);
     }
 
     public void PlayDoorUnlockedSFX()
     {
-        audioSource.PlayOneShot(doorUnlockedSFX);
+        audioSource.PlayOneShot(doorUnlockedSFX, 1f);
     }
 
     public void PlayDropSFX()
     {
-        audioSource.PlayOneShot(dropSFX);
+        audioSource.PlayOneShot(dropSFX, 1f);
     }
 
     public void PlayPickSFX()
     {
-        audioSource.PlayOneShot(pickSFX);
+        audioSource.PlayOneShot(pickSFX, 1f);
     }
 
     public void PlayScaleSFX()
     {
-        audioSource.PlayOneShot(scaleSFX);
+        audioSource.PlayOneShot(scaleSFX, 1f);
     }
 }
