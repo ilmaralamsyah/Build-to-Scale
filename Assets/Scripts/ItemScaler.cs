@@ -16,8 +16,8 @@ public class ItemScaler : MonoBehaviour
     [SerializeField] private float maxScale;
     [SerializeField] private float minScale;
 
-    [SerializeField] private Texture2D scaleCursor;
-    [SerializeField] private Texture2D pickCursor;
+    /*[SerializeField] private Texture2D scaleCursor;
+    [SerializeField] private Texture2D pickCursor;*/
 
     private Vector2 cursorHotspot;
 
@@ -28,7 +28,7 @@ public class ItemScaler : MonoBehaviour
 
     private void Start()
     {
-        cursorHotspot = new Vector2(scaleCursor.width / 2, scaleCursor.height / 2);
+        /*cursorHotspot = new Vector2(scaleCursor.width / 2, scaleCursor.height / 2);*/
     }
 
     private void Update()
@@ -45,14 +45,14 @@ public class ItemScaler : MonoBehaviour
             if (raycastHit.transform.TryGetComponent<Item>(out Item detectedItem))
             {
                 this.item = detectedItem;
-                if (this.item.IsScalable())
+                /*if (this.item.IsScalable())
                 {
                     Cursor.SetCursor(scaleCursor, cursorHotspot, CursorMode.Auto);
                 }
                 else if (this.item.IsPickable())
                 {
                     Cursor.SetCursor(pickCursor, cursorHotspot, CursorMode.Auto);
-                }
+                }*/
 
             }
         }
