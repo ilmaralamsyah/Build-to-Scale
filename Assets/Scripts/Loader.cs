@@ -13,8 +13,6 @@ public static class Loader
         Level0,
         Level1,
         Level2,
-        GameScene,
-        GameOverScene
     }
 
     public static Scene targetScene;

@@ -9,7 +9,7 @@ public class LightController : MonoBehaviour
     public static event Action onReveal;
     public static event Action onHide;
 
-    [SerializeField] private Light light;
+    [SerializeField] private new Light light;
 
     private float lightRangeDefault;
     private float lightIntensityDefault;
@@ -53,7 +53,6 @@ public class LightController : MonoBehaviour
 
         if (light.intensity >= 7f)
         {
-            Debug.Log("aa");
             onReveal?.Invoke();
         }
         

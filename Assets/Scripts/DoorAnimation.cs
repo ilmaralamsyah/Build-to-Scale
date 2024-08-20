@@ -22,4 +22,9 @@ public class DoorAnimation : MonoBehaviour
     {
         animator.SetTrigger("IsTriggered");
     }
+
+    public void TriggerAnimEvent()
+    {
+        AudioManager.Instance.PlayDoorRevealSFX();
+    }
 }

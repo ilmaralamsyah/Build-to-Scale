@@ -17,11 +17,19 @@ public class ItemScaler : MonoBehaviour
     [SerializeField] private float maxScale;
     [SerializeField] private float minScale;
 
+    [SerializeField] private Texture2D scaleCursor;
+    [SerializeField] private Texture2D pickCursor;
 
+    private Vector2 cursorHotspot;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        cursorHotspot = new Vector2(scaleCursor.width / 2, scaleCursor.height / 2);
     }
 
     private void Update()
@@ -38,6 +46,15 @@ public class ItemScaler : MonoBehaviour
             if (raycastHit.transform.TryGetComponent<Item>(out Item detectedItem))
             {
                 this.item = detectedItem;
+                if (this.item.IsScalable())
+                {
+                    Cursor.SetCursor(scaleCursor, cursorHotspot, CursorMode.Auto);
+                }
+                else if (this.item.IsPickable())
+                {
+                    Cursor.SetCursor(pickCursor, cursorHotspot, CursorMode.Auto);
+                }
+
             }
         }
         else
@@ -47,6 +64,7 @@ public class ItemScaler : MonoBehaviour
                 //item.GetComponent<Rigidbody>().isKinematic = true;
             }
             this.item = null;
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 
@@ -57,11 +75,12 @@ public class ItemScaler : MonoBehaviour
             //item.GetComponent<Rigidbody>().isKinematic = false;
 
             float scrollInput = Input.GetAxis("Mouse ScrollWheel");
-            
+
 
             if (scrollInput != 0)
             {
                 // Calculate the new scale
+                AudioManager.Instance.PlayScaleSFX();
                 HasLight(scrollInput);
                 Vector3 oldScale = this.item.transform.localScale;
                 Vector3 newScale = oldScale + Vector3.one * scrollInput * scaleSpeed;
@@ -102,7 +121,6 @@ public class ItemScaler : MonoBehaviour
             else if (scrollInput < 0f)
             {
                 lightController.LightDown();
-                Debug.Log("down");
             }
         }
     }

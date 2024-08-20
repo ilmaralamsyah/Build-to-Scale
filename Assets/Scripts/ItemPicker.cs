@@ -6,10 +6,11 @@ public class ItemPicker : MonoBehaviour
 {
     [SerializeField] private LayerMask itemLayerMask;
     [SerializeField] private LayerMask playAreaLayerMask;
-    
+
     private int pickUpLayer = 9;
     private Item pickedItem;
     private int originalLayer;
+    private Vector2 cursorHotspot;
 
     private void Update()
     {
@@ -22,6 +23,7 @@ public class ItemPicker : MonoBehaviour
         {
             if (pickedItem != null)
             {
+                AudioManager.Instance.PlayDropSFX();
                 pickedItem.GetComponent<Rigidbody>().isKinematic = false;
                 pickedItem.gameObject.layer = originalLayer;
                 pickedItem = null;
@@ -34,7 +36,6 @@ public class ItemPicker : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, playAreaLayerMask))
             {
                 pickedItem.transform.position = raycastHit.point;
-                
             }
         }
     }
@@ -48,6 +49,7 @@ public class ItemPicker : MonoBehaviour
             {
                 if (detectedItem.IsPickable())
                 {
+                    AudioManager.Instance.PlayPickSFX();
                     pickedItem = detectedItem;
                     originalLayer = pickedItem.gameObject.layer;
                     pickedItem.gameObject.layer = pickUpLayer;

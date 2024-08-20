@@ -10,23 +10,9 @@ public class KeyItem : MonoBehaviour
 
     [SerializeField] private LayerMask keyLayerMask;
 
-    void Update()
+    private void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            PickUpKey();
-        }
-    }
-
-
-    private void PickUpKey()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, keyLayerMask))
-        {
-            //play audio pickup key
-            onPickedUpKey?.Invoke();
-            Destroy(gameObject, 0.2f);
-        }
+        onPickedUpKey?.Invoke();
+        Destroy(gameObject, 0.2f);
     }
 }

@@ -8,34 +8,24 @@ public class SecretDoor : MonoBehaviour
 
     [SerializeField] private bool isUnlocked = false;
 
-    private void Update()
+    private void OnMouseDown()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (isUnlocked)
         {
-            ProceedtoNextLevel();
+            AudioManager.Instance.PlayDoorUnlockedSFX();
+            Loader.Load(Loader.Scene.Level1);
+        }
+        else
+        {
+            AudioManager.Instance.PlayDoorLockSFX();
         }
     }
 
     public void SetUnlock(bool isUnlocked)
     {
         this.isUnlocked = isUnlocked;
+        AudioManager.Instance.PlayDoorUnlockedSFX();
     }
 
-    private void ProceedtoNextLevel()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, doorLayerMask))
-        {
-            if (isUnlocked)
-            {
-                //play audio opening door
-                Loader.Load(Loader.Scene.Level1);
-            }
-            else
-            {
-                //play audio locked door
-            }
 
-        }
-    }
 }

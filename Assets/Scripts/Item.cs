@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
     [SerializeField] private float yReposition;
     [SerializeField] private float zReposition;
 
-    private Rigidbody rigidbody;
+    private new Rigidbody rigidbody;
 
     private void Start()
     {
