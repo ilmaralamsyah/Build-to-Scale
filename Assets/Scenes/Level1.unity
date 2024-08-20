@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -2332,8 +2332,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
@@ -8163,7 +8163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336b7833f9f23254287db75627f56306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dorrAnimation: {fileID: 7400000, guid: f8243c6cb3cdb724b8a56bf43939d4e5, type: 2}
 --- !u!1001 &1386574828
 PrefabInstance:
   m_ObjectHideFlags: 0
