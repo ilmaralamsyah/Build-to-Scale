@@ -7,23 +7,22 @@ public class CameraRotation : MonoBehaviour
 
     [SerializeField] private Transform pivotObject;
     [SerializeField] private float rotationSpeed = 5f;
-    /*[SerializeField] private Texture2D cameraCursor;*/
-
-    private Vector2 cursorHotspot;
-
-    private void Start()
-    {
-        /*cursorHotspot = new Vector2(cameraCursor.width / 2, cameraCursor.height / 2);*/
-    }
 
     private void Update()
     {
         if (Input.GetMouseButton(1))
         {
-
-            /*Cursor.SetCursor(cameraCursor, cursorHotspot, CursorMode.Auto);*/
-
             RotateCamera();
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            CursorManager.Instance.SetCameraRotateCursor();
+        }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            CursorManager.Instance.SetDefaultCursor();
         }
     }
 

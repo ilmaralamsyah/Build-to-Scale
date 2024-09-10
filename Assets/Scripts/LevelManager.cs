@@ -1,35 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    public static LevelManager Instance { get; private set; }
 
-    [SerializeField] private Transform secretDoor;
-    [SerializeField] private KeyItem key;
-
-    void Start()
+    private void Awake()
     {
-        LightController.onReveal += LightController_onEventTriggered;
-        LightController.onHide += LightController_onHide;
-        key.onPickedUpKey += Key_onPickedUpKey;
-        secretDoor.gameObject.SetActive(false);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-   
-    private void Key_onPickedUpKey()
+    public void LoadLevel(int levelIndex)
     {
-        secretDoor.GetComponent<SecretDoor>().SetUnlock(true);
+        SceneManager.LoadScene(levelIndex);
     }
 
-    private void LightController_onHide()
+    public void ReloadCurrentLevel()
     {
-        secretDoor.gameObject.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void LightController_onEventTriggered()
+    public void LoadNextLevel()
     {
-        secretDoor.gameObject.SetActive(true);
+        int nextLevelIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextLevelIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextLevelIndex);
+        }
+        else
+        {
+            Debug.Log("You have completed all levels!");
+        }
     }
-
 }
