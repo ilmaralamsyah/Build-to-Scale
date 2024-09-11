@@ -1,8 +1,11 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.Progress;
 
+
+[RequireComponent(typeof(MMSpringScale))]
 public class ScalableObject : BaseObject
 {
     [Header("Scale Controller")]
@@ -15,10 +18,18 @@ public class ScalableObject : BaseObject
     [SerializeField] private float yReposition;
     [SerializeField] private float zReposition;
 
+
+
+    private MMSpringScale scalerFeel;
+
+
+
     private void Start()
     {
         isScalable = true;
         isPickable = false;
+
+        scalerFeel = GetComponent<MMSpringScale>();
     }
 
     private void OnMouseOver()
@@ -26,13 +37,21 @@ public class ScalableObject : BaseObject
         HandleScaleObject();
     }
 
+    protected override void OnMouseDown()
+    {
+        
+    }
+
     private void HandleScaleObject()
     {
+        Debug.Log(IsHoldingObject());
+        if (IsHoldingObject()) { return; }
         float scrollInput = Input.GetAxis("Mouse ScrollWheel");
 
 
         if (scrollInput != 0)
         {
+            Debug.Log(scrollInput);
             // Calculate the new scale
             //AudioManager.Instance.PlayScaleSFX();
             //HasLight(scrollInput);
@@ -47,6 +66,7 @@ public class ScalableObject : BaseObject
 
             // Apply the new scale
             this.transform.localScale = newScale;
+            scalerFeel.MoveTo(newScale);
 
             // Calculate the difference in scale and adjust position to keep y at 0
             Vector3 scaleDifference = newScale - oldScale;
@@ -57,6 +77,7 @@ public class ScalableObject : BaseObject
 
             // Apply the corrected position
             this.transform.position = newPosition;
+
         }
     }
 }

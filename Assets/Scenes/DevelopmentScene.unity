@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 247065735}
   - component: {fileID: 247065734}
   - component: {fileID: 247065739}
+  - component: {fileID: 247065740}
   m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -159,6 +160,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 7671
+  yHeight: 3
 --- !u!65 &247065735
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -272,6 +274,114 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &247065740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247065733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcada72f36389ee498301db873e7cd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEquilibriumReached:
+    m_PersistentCalls:
+      m_Calls: []
+  Target: {fileID: 0}
+  TimeScaleMode: 1
+  ChannelMode: 0
+  Channel: 0
+  MMChannelDefinition: {fileID: 0}
+  SpringVector3:
+    SeparateAxis: 0
+    UnifiedSpring:
+      Damping: 0.4
+      Frequency: 6
+      ClampSettings:
+        ClampMin: 0
+        ClampMinValue: 0
+        ClampMinInitial: 0
+        ClampMinBounce: 0
+        ClampMax: 0
+        ClampMaxValue: 10
+        ClampMaxInitial: 0
+        ClampMaxBounce: 0
+      SpringDebug:
+        CurrentValue: 0
+        TargetValue: 0
+      UnifiedSpring: 1
+      CurrentValueDisplay: 0
+      TargetValueDisplay: 0
+      VelocityDisplay: 0
+    SpringX:
+      Damping: 0.4
+      Frequency: 6
+      ClampSettings:
+        ClampMin: 0
+        ClampMinValue: 0
+        ClampMinInitial: 0
+        ClampMinBounce: 0
+        ClampMax: 0
+        ClampMaxValue: 10
+        ClampMaxInitial: 0
+        ClampMaxBounce: 0
+      SpringDebug:
+        CurrentValue: 0
+        TargetValue: 0
+      UnifiedSpring: 0
+      CurrentValueDisplay: 0
+      TargetValueDisplay: 0
+      VelocityDisplay: 0
+    SpringY:
+      Damping: 0.4
+      Frequency: 6
+      ClampSettings:
+        ClampMin: 0
+        ClampMinValue: 0
+        ClampMinInitial: 0
+        ClampMinBounce: 0
+        ClampMax: 0
+        ClampMaxValue: 10
+        ClampMaxInitial: 0
+        ClampMaxBounce: 0
+      SpringDebug:
+        CurrentValue: 0
+        TargetValue: 0
+      UnifiedSpring: 0
+      CurrentValueDisplay: 0
+      TargetValueDisplay: 0
+      VelocityDisplay: 0
+    SpringZ:
+      Damping: 0.4
+      Frequency: 6
+      ClampSettings:
+        ClampMin: 0
+        ClampMinValue: 0
+        ClampMinInitial: 0
+        ClampMinBounce: 0
+        ClampMax: 0
+        ClampMaxValue: 10
+        ClampMaxInitial: 0
+        ClampMaxBounce: 0
+      SpringDebug:
+        CurrentValue: 0
+        TargetValue: 0
+      UnifiedSpring: 0
+      CurrentValueDisplay: 0
+      TargetValueDisplay: 0
+      VelocityDisplay: 0
+  MoveToRandomValueMin: {x: -2, y: -2, z: -2}
+  MoveToRandomValueMax: {x: 2, y: 2, z: 2}
+  BumpAmountRandomValueMin: {x: -20, y: 20, z: -20}
+  BumpAmountRandomValueMax: {x: 20, y: 20, z: 20}
+  TestMoveToValue: {x: 2, y: 2, z: 2}
+  MoveToToolbar: 0
+  TestBumpAmount: {x: 75, y: 100, z: 50}
+  BumpToToolbar: 0
+  OtherControlsToToolbar: 0
+  Space: 1
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,6 +825,7 @@ GameObject:
   - component: {fileID: 1084507823}
   - component: {fileID: 1084507822}
   - component: {fileID: 1084507821}
+  - component: {fileID: 1084507826}
   - component: {fileID: 1084507825}
   m_Layer: 0
   m_Name: Cube
@@ -803,7 +914,7 @@ Transform:
   m_GameObject: {fileID: 1084507819}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -821,12 +932,150 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77759bc9889faad4abb5223b7695e261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 5
-  maxScale: 5
-  minScale: 1
+  scaleSpeed: 10
+  maxScale: 3.5
+  minScale: 0.5
   xReposition: 0
-  yReposition: -1
+  yReposition: 0
   zReposition: 0
+--- !u!114 &1084507826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084507819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd48b27a4bcde354a99ab15f0bd82486, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnEquilibriumReached:
+    m_PersistentCalls:
+      m_Calls: []
+  Target: {fileID: 0}
+  TimeScaleMode: 1
+  ChannelMode: 0
+  Channel: 0
+  MMChannelDefinition: {fileID: 0}
+  SpringVector3:
+    SeparateAxis: 0
+    UnifiedSpring:
+      Damping: 0.4
+      Frequency: 6
+      ClampSettings:
+        ClampMin: 0
+        ClampMinValue: 0
+        ClampMinInitial: 0
+        ClampMinBounce: 0
+        ClampMax: 0
+        ClampMaxValue: 10
+        ClampMaxInitial: 0
+        ClampMaxBounce: 0
+      SpringDebug:
+        CurrentValue: 0
+        TargetValue: 0
+      UnifiedSpring: 1
+      CurrentValueDisplay: 0
+      TargetValueDisplay: 0
+      VelocityDisplay: 0
+    SpringX:
+      Damping: 0.4
+      Frequency: 6
+      ClampSettings:
+        ClampMin: 0
+        ClampMinValue: 0
+        ClampMinInitial: 0
+        ClampMinBounce: 0
+        ClampMax: 0
+        ClampMaxValue: 10
+        ClampMaxInitial: 0
+        ClampMaxBounce: 0
+      SpringDebug:
+        CurrentValue: 0
+        TargetValue: 0
+      UnifiedSpring: 0
+      CurrentValueDisplay: 0
+      TargetValueDisplay: 0
+      VelocityDisplay: 0
+    SpringY:
+      Damping: 0.4
+      Frequency: 6
+      ClampSettings:
+        ClampMin: 0
+        ClampMinValue: 0
+        ClampMinInitial: 0
+        ClampMinBounce: 0
+        ClampMax: 0
+        ClampMaxValue: 10
+        ClampMaxInitial: 0
+        ClampMaxBounce: 0
+      SpringDebug:
+        CurrentValue: 0
+        TargetValue: 0
+      UnifiedSpring: 0
+      CurrentValueDisplay: 0
+      TargetValueDisplay: 0
+      VelocityDisplay: 0
+    SpringZ:
+      Damping: 0.4
+      Frequency: 6
+      ClampSettings:
+        ClampMin: 0
+        ClampMinValue: 0
+        ClampMinInitial: 0
+        ClampMinBounce: 0
+        ClampMax: 0
+        ClampMaxValue: 10
+        ClampMaxInitial: 0
+        ClampMaxBounce: 0
+      SpringDebug:
+        CurrentValue: 0
+        TargetValue: 0
+      UnifiedSpring: 0
+      CurrentValueDisplay: 0
+      TargetValueDisplay: 0
+      VelocityDisplay: 0
+  MoveToRandomValueMin: {x: -2, y: -2, z: -2}
+  MoveToRandomValueMax: {x: 2, y: 2, z: 2}
+  BumpAmountRandomValueMin: {x: -20, y: 20, z: -20}
+  BumpAmountRandomValueMax: {x: 20, y: 20, z: 20}
+  TestMoveToValue: {x: 2, y: 2, z: 2}
+  MoveToToolbar: 0
+  TestBumpAmount: {x: 75, y: 100, z: 50}
+  BumpToToolbar: 0
+  OtherControlsToToolbar: 0
+--- !u!1 &1089542370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1089542371}
+  m_Layer: 0
+  m_Name: Feedbacks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1089542371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089542370}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &89837738694378335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -835,6 +1084,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1715556125222115036, guid: dda69a58bbb011441b984ade843a6133,
+        type: 3}
+      propertyPath: pickCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: 2dbeee5cec7726342aa605595cc192a0, type: 3}
+    - target: {fileID: 1715556125222115036, guid: dda69a58bbb011441b984ade843a6133,
+        type: 3}
+      propertyPath: holdingCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: 3e8f04996b9355f408788bf5929faade, type: 3}
     - target: {fileID: 4337065909299315965, guid: dda69a58bbb011441b984ade843a6133,
         type: 3}
       propertyPath: m_Name
@@ -1031,74 +1290,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bff7d02a12b4f394abf4984837e18152, type: 3}
---- !u!1001 &7604729072962282371
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2448980106454644073, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586703011911398856, guid: 74fbf22a4ae487042a16097531f8e0c0,
-        type: 3}
-      propertyPath: m_Name
-      value: InputManager
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 74fbf22a4ae487042a16097531f8e0c0, type: 3}
 --- !u!1001 &8096194675476830519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1247,7 +1438,7 @@ SceneRoots:
   - {fileID: 4784731389499899746}
   - {fileID: 8096194675476830519}
   - {fileID: 3528132569722620907}
-  - {fileID: 7604729072962282371}
+  - {fileID: 89837738694378335}
   - {fileID: 1084507824}
   - {fileID: 247065738}
-  - {fileID: 89837738694378335}
+  - {fileID: 1089542371}

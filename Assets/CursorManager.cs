@@ -13,12 +13,14 @@ public class CursorManager : MonoBehaviour
     [SerializeField] private Texture2D interactCursor;
     [SerializeField] private Texture2D scaleAndPickCursor;
     [SerializeField] private Texture2D cameraRotateCursor;
+    [SerializeField] private Texture2D holdingCursor;
 
     private Vector2 scaleCursorHotspot;
     private Vector2 pickCursorHotspot;
     private Vector2 interactCursorHotspot;
     private Vector2 scaleAndPickCursorHotspot;
     private Vector2 cameraRotateCursorHotspot;
+    private Vector2 holdingCursorHotspot;
 
     private void Awake()
     {
@@ -46,36 +48,35 @@ public class CursorManager : MonoBehaviour
     public void SetDefaultCursor()
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-        Debug.Log("default");
     }
 
     public void SetScaleCursor()
     {
         Cursor.SetCursor(scaleCursor, scaleCursorHotspot, CursorMode.Auto);
-         Debug.Log("scale");
     }
 
     public void SetPickCursor()
     {
         Cursor.SetCursor(pickCursor, pickCursorHotspot, CursorMode.Auto);
-        Debug.Log("pick");
     }
 
     public void SetInteractCursor()
     {
         Cursor.SetCursor(interactCursor, interactCursorHotspot, CursorMode.Auto);
-        Debug.Log("interact");
     }
 
     public void SetScaleAndPickCursor()
     {
         Cursor.SetCursor(scaleAndPickCursor, scaleAndPickCursorHotspot, CursorMode.Auto);
-        Debug.Log("scale pick");
     }
 
     public void SetCameraRotateCursor()
     {
         Cursor.SetCursor(cameraRotateCursor, cameraRotateCursorHotspot, CursorMode.Auto);
-        Debug.Log("camera");
+    }
+
+    public void SetHoldingCursor()
+    {
+        Cursor.SetCursor(holdingCursor, holdingCursorHotspot, CursorMode.Auto);
     }
 }
