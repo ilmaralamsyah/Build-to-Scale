@@ -15,15 +15,6 @@ public class CameraRotation : MonoBehaviour
             RotateCamera();
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            CursorManager.Instance.SetCameraRotateCursor();
-        }
-
-        if (Input.GetMouseButtonUp(1))
-        {
-            CursorManager.Instance.SetDefaultCursor();
-        }
     }
 
     private void RotateCamera()
