@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8922355f6636e8c4d92ce1ce0ad706a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleCursor: {fileID: 2800000, guid: 1c1b422b8511a1842951df1e20557e4f, type: 3}
-  pickCursor: {fileID: 2800000, guid: f2ef8f82fd7c8374fb3a6f667e92aaa7, type: 3}
-  interactCursor: {fileID: 2800000, guid: f2ef8f82fd7c8374fb3a6f667e92aaa7, type: 3}
-  scaleAndPickCursor: {fileID: 2800000, guid: 1c1b422b8511a1842951df1e20557e4f, type: 3}
-  cameraRotateCursor: {fileID: 2800000, guid: 2c4caf8d0dff0a347be79dd60044570b, type: 3}
+  scaleCursor: {fileID: 2800000, guid: 590cc4dec7e70894ebdbb7edc6c99d5a, type: 3}
+  pickCursor: {fileID: 2800000, guid: 9df9c421587e9bd4cbc2a304c96e41a1, type: 3}
+  scaleAndPickCursor: {fileID: 2800000, guid: 9df9c421587e9bd4cbc2a304c96e41a1, type: 3}
+  holdingCursor: {fileID: 2800000, guid: 086eadb5eaa33434f9773795d6eb41af, type: 3}

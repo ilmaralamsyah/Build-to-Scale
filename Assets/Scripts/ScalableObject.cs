@@ -5,7 +5,7 @@ using UnityEngine;
 using static UnityEditor.Progress;
 
 
-[RequireComponent(typeof(MMSpringScale))]
+
 [RequireComponent (typeof(Feedback))]
 public class ScalableObject : MonoBehaviour, IScalable
 {
@@ -13,10 +13,7 @@ public class ScalableObject : MonoBehaviour, IScalable
     [SerializeField] private float scaleSpeed = 5f;
     [SerializeField] private float maxScale = 2f;
     [SerializeField] private float minScale = 0.5f;
-    
-
-    private MMSpringScale scalerFeel;
-    
+   
 
     private Rigidbody rb;
 
@@ -28,10 +25,6 @@ public class ScalableObject : MonoBehaviour, IScalable
         rb = GetComponent<Rigidbody>();
 
         feedback = GetComponent<Feedback>();
-        scalerFeel = GetComponent<MMSpringScale>();
-
-        scalerFeel.SpringVector3.SetFrequency(feedback.GetScaleFeel());
-        scalerFeel.SpringVector3.SetDamping(feedback.GetScaleDumpling());
 
     }
 
@@ -51,7 +44,7 @@ public class ScalableObject : MonoBehaviour, IScalable
         newScale = Vector3.Max(newScale, Vector3.one * minScale);
         newScale = Vector3.Min(newScale, Vector3.one * maxScale);
         transform.localScale = newScale;
-        scalerFeel.MoveTo(newScale);
+        feedback.PlayScaleFeedback(newScale);
     }
 
     private void HandleScaleObject()

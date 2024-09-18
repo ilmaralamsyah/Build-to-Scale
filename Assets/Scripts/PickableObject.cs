@@ -38,10 +38,10 @@ public class PickableObject : MonoBehaviour, IPickable
     public void PutDown()
     {
         isHoldingObject = false;
-        rb.isKinematic = false;
 
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = false;
     }
 
     private void OnMouseDown()

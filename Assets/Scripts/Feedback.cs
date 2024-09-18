@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[RequireComponent(typeof(MMSpringScale))]
 [RequireComponent(typeof(MMRotationShaker))]
 public class Feedback : MonoBehaviour
 {
@@ -16,28 +18,40 @@ public class Feedback : MonoBehaviour
 
 
     private MMRotationShaker shakerFeel;
+    private MMSpringScale scalerFeel;
 
     private void Start()
     {
 
         shakerFeel = GetComponent<MMRotationShaker>();
+        scalerFeel = GetComponent<MMSpringScale>();
 
         shakerFeel.ShakeSpeed = shakeSpeed;
         shakerFeel.ShakeRange = shakeRange;
+        
+
+        scalerFeel.SpringVector3.SetFrequency(GetScaleFeel());
+        scalerFeel.SpringVector3.SetDamping(GetScaleDumpling());
     }
 
     private void OnMouseEnter()
     {
+        if (PickableObject.isHoldingObject) return;
         shakerFeel.Play();
     }
 
-    public Vector3 GetScaleFeel()
+    private Vector3 GetScaleFeel()
     {
         return new Vector3(scaleFeel, scaleFeel, scaleFeel);
     }
 
-    public Vector3 GetScaleDumpling()
+    private Vector3 GetScaleDumpling()
     {
         return new Vector3(scaleDumpling, scaleDumpling, scaleDumpling);
+    }
+
+    public void PlayScaleFeedback(Vector3 scaleTo)
+    {
+        scalerFeel.MoveTo(scaleTo);
     }
 }
