@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45cc3db03afd01e4cb62a59f92ea2a31, type: 3}
+  m_Name: Couch
+  m_EditorClassIdentifier: 
+  objectIcon: {fileID: 1396070358, guid: 6582f34ddd5f686408c019550cd94c9d, type: 3}
+  objectPrefab: {fileID: 5431648710200563651, guid: d6cc8cb4773ebc643ab3edc95c5db932,
+    type: 3}
+  objectName: Couch
+  objectType: 2
+  objectID: 1

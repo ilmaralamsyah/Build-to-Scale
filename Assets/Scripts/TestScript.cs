@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class TestScript : MonoBehaviour
 {
-    private void OnMouseOver()
+    private void Update()
     {
-        Debug.Log("aa");
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Hold");
+        }
+
     }
 }
