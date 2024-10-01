@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45cc3db03afd01e4cb62a59f92ea2a31, type: 3}
-  m_Name: Furniture
+  m_Name: Table 1
   m_EditorClassIdentifier: 
-  objectIcon: {fileID: -1994478078, guid: 6582f34ddd5f686408c019550cd94c9d, type: 3}
-  objectPrefab: {fileID: 4650455826879540966, guid: ce97108198da6ac489d00b8e295ee8cc,
+  objectIcon: {fileID: 21300000, guid: 5233a4e69eeec9e4db5d995e1e15758e, type: 3}
+  objectPrefab: {fileID: 4998189718579314971, guid: 49fb9aac544db8041b441082b4521e5a,
     type: 3}
-  objectName: Furniture
-  objectType: 1
-  objectID: 2
+  objectName: Table
+  objectType: 0
+  objectID: 0
+  isUnlocked: 0

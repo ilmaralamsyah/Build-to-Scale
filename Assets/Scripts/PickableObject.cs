@@ -6,12 +6,11 @@ using UnityEngine;
 public class PickableObject : MonoBehaviour, IPickable
 {
 
-    [SerializeField] private LayerMask layerMask;
     [SerializeField] private float yHeight = 3f;
 
     public static bool isHoldingObject = false;
     private int pickUpLayer = 9;
-    private int originalLayer;
+    private int originalLayer = 0;
 
     private Vector3 yOffset = Vector3.up;
 
@@ -25,8 +24,8 @@ public class PickableObject : MonoBehaviour, IPickable
         rb.freezeRotation = true;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
 
-        this.gameObject.layer = originalLayer;
-
+        
+        rb.isKinematic = true;
     }
 
     public void PickUp()
@@ -49,7 +48,7 @@ public class PickableObject : MonoBehaviour, IPickable
         PickUp();
         CursorManager.Instance.SetHoldingCursor();
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, LayerMaskManager.Instance.GetDraggingLayerMask()))
         {
             this.gameObject.layer = pickUpLayer;
         }
@@ -70,7 +69,7 @@ public class PickableObject : MonoBehaviour, IPickable
         if (isHoldingObject)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, layerMask))
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, LayerMaskManager.Instance.GetDraggingLayerMask()))
             {
                 this.transform.position = raycastHit.point + yOffset * yHeight;
             }

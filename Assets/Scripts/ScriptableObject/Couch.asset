@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc3db03afd01e4cb62a59f92ea2a31, type: 3}
   m_Name: Couch
   m_EditorClassIdentifier: 
-  objectIcon: {fileID: 1396070358, guid: 6582f34ddd5f686408c019550cd94c9d, type: 3}
-  objectPrefab: {fileID: 5431648710200563651, guid: d6cc8cb4773ebc643ab3edc95c5db932,
+  objectIcon: {fileID: 21300000, guid: c9f0827aafdbba243a2bb45c506e6b92, type: 3}
+  objectPrefab: {fileID: 7364411316726097120, guid: 8450faa87d1e91b4686f84d79bba3758,
     type: 3}
   objectName: Couch
   objectType: 2
   objectID: 1
+  isUnlocked: 0

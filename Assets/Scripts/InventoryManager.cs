@@ -16,7 +16,6 @@ public class InventoryManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
 
             // Initialize dictionary with empty lists
             foreach (ObjectSO.ObjectType objectType in System.Enum.GetValues(typeof(ObjectSO.ObjectType)))
@@ -48,7 +47,6 @@ public class InventoryManager : MonoBehaviour
         if (objectCategories.ContainsKey(objectSO.objectType))
         {
             objectCategories[objectSO.objectType].Add(objectSO);
-            Debug.Log(objectSO.objectName + " added to " + objectSO.objectType + " category.");
         }
     }
 

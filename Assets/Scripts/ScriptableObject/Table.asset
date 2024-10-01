@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cc3db03afd01e4cb62a59f92ea2a31, type: 3}
   m_Name: Table
   m_EditorClassIdentifier: 
-  objectIcon: {fileID: -1994478078, guid: 6582f34ddd5f686408c019550cd94c9d, type: 3}
-  objectPrefab: {fileID: 1881606893168029914, guid: 796a5b56b1d1cce4d883a8c6cdbff42b,
+  objectIcon: {fileID: 21300000, guid: 72460d2b98c51a24a8d50a3019b1c838, type: 3}
+  objectPrefab: {fileID: 7686806549108491178, guid: 8aae9f29eb06f994397ab2bc1c7beceb,
     type: 3}
   objectName: Table
   objectType: 3
   objectID: 1
+  isUnlocked: 0
